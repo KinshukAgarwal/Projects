@@ -1,0 +1,223 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#container
+{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+    background-color: black;
+}
+
+#card 
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    position: relative;
+    height: 50vh;
+    width: 40vh;
+    background: rgba(0, 0, 0, 1);
+    color: white;
+    overflow: hidden;
+}
+
+#card:before 
+{
+    content: '';
+    position: absolute;
+    z-index: 10;
+    height: 100%;
+    width: 100%;
+    background-color: greenyellow;
+    clip-path: circle(150px at 80% 20%);
+    transition: 0.3s ease-in-out;
+}
+
+#card:hover:before
+{
+    clip-path: circle(300px at 80% -20%);
+}
+
+#card img 
+{
+    height: 250px;
+    position: absolute;
+    z-index: 10;
+    transform: rotateY(180deg) rotateZ(20deg);
+    top: 30%;
+    left: 7.5%;
+    transition: 0.3s ease-in-out;
+    transition-delay: 0.05s;
+}
+
+#card:hover img
+{
+    top: 10%;
+    left: 10%;
+    transform: rotateY(180deg) scale(1.1);
+}
+
+#card .name_tag
+{
+    position: absolute;
+    font-size: 200px;
+    color: rgba(255, 255, 255, 0.2);
+    z-index: 0;
+    font-family: american system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-style: italic;
+    transform: translateY(20%);
+}
+
+#card #sizes 
+{
+    position: absolute;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    top: 85%;
+    width: 80%;
+    font-family: "american captain";
+    letter-spacing: 2px;
+    transition: 0.3s ease-in-out;
+    transition-delay: 0.2s;
+    opacity: 0;
+    visibility: visible;
+}
+
+#card #sizes span
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 1);
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    color: black;
+    transition: 0.2s ease-in-out;
+}
+
+#card #sizes span:hover 
+{
+    color: white;
+    background-color: black;
+}
+
+#card:hover #sizes
+{
+    top: 70%;
+    visibility: visible;
+    opacity: 1;
+}
+
+#card #colors 
+{
+    position: absolute;
+    z-index: 10;
+    top: 95%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 90%;
+    font-family: "american captain";
+    letter-spacing: 2px;
+    transition: 0.3s ease-in-out;
+    transition-delay: 0.35s;
+    opacity: 0;
+    visibility: hidden;
+}
+
+#card:hover #colors
+{
+    top: 85%;
+    visibility: visible;
+    opacity: 1;
+} 
+
+#card #colors span
+{
+    width: 20px;
+    height: 20px;
+    clip-path: circle(9px);
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+}
+
+#card #colors span:nth-child(2) 
+{
+    background-color: red;
+}
+
+#card #colors span:nth-child(3) 
+{
+    background-color: greenyellow;
+}
+
+#card #colors span:nth-child(4) 
+{
+    background-color: blue;
+}
+
+#card #colors span:nth-child(5) 
+{
+    background-color: white;
+}
+
+#card #colors span:hover 
+{
+    transform: scale(1.1);
+}
+
+.decorator:nth-child(2)
+{
+    height: 100vh;
+    width: 100vh;
+    position: absolute;
+    z-index: 1;
+    border-radius: 50%;
+    top: 50%;
+    left: 80%;
+    background-color: blue;
+    filter: blur(250px);
+    animation: flicker 3s infinite;
+    overflow: hidden;
+}
+
+.decorator:nth-child(3)
+{
+    height: 100vh;
+    width: 100vh;
+    position: absolute;
+    z-index: 1;
+    border-radius: 50%;
+    top: 50%;
+    left: -60vh;
+    background-color: red;
+    filter: blur(250px);
+    animation: flicker 3s infinite;
+}
+
+@keyframes flicker {
+    0%
+    {
+        opacity: 1;
+    }
+
+    50%
+    {
+        opacity: 0.7;
+    }
+    100%
+    {
+        opacity: 1;
+    }
+}
